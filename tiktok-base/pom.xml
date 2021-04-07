@@ -9,11 +9,10 @@
         <version>2.2.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.pangu</groupId>
-    <artifactId>pangu</artifactId>
+    <groupId>com.tiktok.base</groupId>
+    <artifactId>tiktok-base</artifactId>
     <version>1.0.0-RELEASE</version>
-    <name>pangu</name>
-    <description>First SDK for pangu</description>
+    <name>tiktok-base</name>
 
     <dependencies>
 

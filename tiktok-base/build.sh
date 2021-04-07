@@ -22,4 +22,4 @@ cd ${path}
 rm -rf output
 mkdir output
 
-mv ${path}/target/pangu-1.0.0-RELEASE.jar output/  #拷贝目标war包或者jar包等至output目录下
+mv ${path}/target/tiktok-base-1.0.0-RELEASE.jar output/  #拷贝目标war包或者jar包等至output目录下
