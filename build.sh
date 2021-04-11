@@ -46,7 +46,13 @@ cp ${path}/tomcat-server.xml ${TOMCAT_HOME}/conf/server.xml
 
 # 重启tomcat
 sh ${TOMCAT_HOME}/bin/shutdown.sh
-sh ${TOMCAT_HOME}/bin/shutdown.sh
+if [ $ret -ne 0 ];then
+    echo "===== tomcat shutdown failure ====="
+    exit $ret
+else
+    echo -n "===== tomcat shutdown successfully! ====="
+fi
+sh ${TOMCAT_HOME}/bin/startup.sh
 if [ $ret -ne 0 ];then
     echo "===== tomcat start failure ====="
     exit $ret

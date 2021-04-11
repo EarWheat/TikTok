@@ -169,7 +169,7 @@
         <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
         -->
 	<!-- <Context path="/confucius" docBase="confucius-0.0.1-SNAPSHOT" debug="0" reloadable="true"/> -->
-        <Context path="/tiktok" docBase="TikTokPlayer-1.0-SNAPSHOT" debug="0" reloadable="true"/>
+        <Context path="/tiktok" docBase="tiktok-back-1.0.0-RELEASE" debug="0" reloadable="true"/>
         <!-- Access log processes all example.
              Documentation at: /docs/config/valve.html
              Note: The pattern used is equivalent to using pattern="common" -->

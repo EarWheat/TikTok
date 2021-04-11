@@ -1,0 +1,21 @@
+2021-04-11 14:17:17||INFO ||com.tiktok.TikTokPlayerApplication:55||Starting TikTokPlayerApplication v1.0.0-RELEASE on didideMacBook-Pro-324.local with PID 91638 (/usr/local/Cellar/apache-tomcat-8.5.46/webapps/tiktok-back-1.0.0-RELEASE/WEB-INF/classes started by didi in /Users/didi/IdeaProjects/tiktok/tiktok-back)
+2021-04-11 14:17:17||INFO ||com.tiktok.TikTokPlayerApplication:651||No active profile set, falling back to default profiles: default
+2021-04-11 14:17:19||INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext:285||Root WebApplicationContext: initialization completed in 2102 ms
+2021-04-11 14:17:23||INFO ||o.s.s.c.ThreadPoolTaskExecutor:181||Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 14:17:24||INFO ||o.s.b.a.w.s.WelcomePageHandlerMapping:54||Adding welcome page: class path resource [static/index.html]
+2021-04-11 14:17:25||INFO ||com.tiktok.TikTokPlayerApplication:61||Started TikTokPlayerApplication in 14.404 seconds (JVM running for 21.788)
+2021-04-11 14:17:37||INFO ||com.tiktok.TikTokPlayerApplication:55||Starting TikTokPlayerApplication v1.0.0-RELEASE on didideMacBook-Pro-324.local with PID 91638 (/usr/local/Cellar/apache-tomcat-8.5.46/webapps/tiktok-back-1.0.0-RELEASE/WEB-INF/classes started by didi in /Users/didi/IdeaProjects/tiktok/tiktok-back)
+2021-04-11 14:17:37||INFO ||com.tiktok.TikTokPlayerApplication:651||No active profile set, falling back to default profiles: default
+2021-04-11 14:17:40||INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext:285||Root WebApplicationContext: initialization completed in 2549 ms
+2021-04-11 14:17:43||INFO ||o.s.s.c.ThreadPoolTaskExecutor:181||Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 14:17:43||INFO ||o.s.b.a.w.s.WelcomePageHandlerMapping:54||Adding welcome page: class path resource [static/index.html]
+2021-04-11 14:17:44||INFO ||com.tiktok.TikTokPlayerApplication:61||Started TikTokPlayerApplication in 13.539 seconds (JVM running for 41.044)
+2021-04-11 14:18:09||INFO ||com.tiktok.TikTokPlayerApplication:55||Starting TikTokPlayerApplication v1.0.0-RELEASE on didideMacBook-Pro-324.local with PID 91638 (/usr/local/Cellar/apache-tomcat-8.5.46/webapps/tiktok-back-1.0.0-RELEASE/WEB-INF/classes started by didi in /Users/didi/IdeaProjects/tiktok/tiktok-back)
+2021-04-11 14:18:09||INFO ||com.tiktok.TikTokPlayerApplication:651||No active profile set, falling back to default profiles: default
+2021-04-11 14:18:11||INFO ||o.s.b.w.s.c.ServletWebServerApplicationContext:285||Root WebApplicationContext: initialization completed in 1855 ms
+2021-04-11 14:18:13||INFO ||o.s.s.c.ThreadPoolTaskExecutor:181||Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-11 14:18:14||INFO ||o.s.b.a.w.s.WelcomePageHandlerMapping:54||Adding welcome page: class path resource [static/index.html]
+2021-04-11 14:18:14||INFO ||com.tiktok.TikTokPlayerApplication:61||Started TikTokPlayerApplication in 11.588 seconds (JVM running for 71.312)
+2021-04-11 14:18:15||INFO ||o.s.web.servlet.DispatcherServlet:525||Initializing Servlet 'dispatcherServlet'
+2021-04-11 14:18:15||INFO ||o.s.web.servlet.DispatcherServlet:547||Completed initialization in 17 ms
+2021-04-11 14:18:15||INFO ||c.t.Service.AuthService.AuthService:29||getAccessTokenURL: https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=M8a1IxRLZPPyQLZ04izlpBRX&client_secret=Goi2UQ0q9EyFZz5uNgT30lzmYsMEzNuA
