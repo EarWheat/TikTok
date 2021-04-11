@@ -73,4 +73,28 @@ public class MediaController {
 
         response.flushBuffer();
     }
+
+    @RequestMapping("getMediaById")
+    public void getMediaById(HttpServletRequest request, HttpServletResponse response, @Param("id") String id) throws Exception{
+        System.out.println("======创建流对象=======");
+        Media media = mediaService.getMediaById(id);
+        if(media.getResource() != null){
+            //创建连接对象
+            URL url = new URL(media.getResource());
+            URLConnection conn = url.openConnection();
+            //设置超时
+            conn.setConnectTimeout(20000);
+            conn.setReadTimeout(5000);
+            //发起连接
+            conn.connect();
+            //获取流
+            InputStream inputStream = conn.getInputStream();
+            //流转换
+            IOUtils.copy(inputStream,response.getOutputStream());
+            //设置返回类型
+            response.addHeader("Content-Type", "audio/mpeg;charset=utf-8");
+            response.flushBuffer();
+        }
+    }
+
 }

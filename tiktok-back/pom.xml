@@ -10,10 +10,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>TikTokPlayer</groupId>
-    <artifactId>TikTokPlayer</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>TikTokPlayer</name>
+    <groupId>tiktok-back</groupId>
+    <artifactId>tiktok-back</artifactId>
+    <version>1.0.0-RELEASE</version>
+    <name>tiktok-back</name>
     <packaging>war</packaging>
 
     <properties>

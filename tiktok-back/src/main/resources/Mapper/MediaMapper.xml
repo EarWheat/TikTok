@@ -23,4 +23,11 @@
         <include refid="base_column"/>
         from tiktok_media;
     </select>
+
+    <select id="getMediaById" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="base_column"/>
+        from tiktok_media
+        where media_id = #{mediaId};
+    </select>
 </mapper>

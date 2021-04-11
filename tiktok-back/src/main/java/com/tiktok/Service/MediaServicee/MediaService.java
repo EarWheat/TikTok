@@ -17,4 +17,5 @@ import java.util.List;
 public interface MediaService {
     public Boolean publicMedia(Media media);
     public List<Media> getMediaList();
+    public Media getMediaById(String id);
 }

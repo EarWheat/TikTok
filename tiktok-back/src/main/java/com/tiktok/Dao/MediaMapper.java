@@ -18,4 +18,5 @@ import java.util.List;
 public interface MediaMapper {
     Boolean publicMedia(Media media);
     List<Media> getMediaList();
+    Media getMediaById(String mediaId);
 }

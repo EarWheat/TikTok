@@ -13,6 +13,7 @@
     <artifactId>tiktok-base</artifactId>
     <version>1.0.0-RELEASE</version>
     <name>tiktok-base</name>
+    <packaging>war</packaging>
 
     <dependencies>
 

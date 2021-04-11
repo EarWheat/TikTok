@@ -31,6 +31,14 @@ public class MediaServiceImpl implements MediaService {
 
     @Override
     public List<Media> getMediaList() {
+        List<Media> mediaList = mediaMapper.getMediaList();
+
         return mediaMapper.getMediaList();
+    }
+
+    @Override
+    public Media getMediaById(String mediaId) {
+        Media media = mediaMapper.getMediaById(mediaId);
+        return media;
     }
 }

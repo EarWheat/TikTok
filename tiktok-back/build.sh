@@ -17,4 +17,5 @@ fi
 cd ${path}
 rm -rf ${TOMCAT_HOME}/TikTokPlayer-1.0-SNAPSHOT.war
 
-mv ${path}/target/TikTokPlayer-1.0-SNAPSHOT.war ${TOMCAT_HOME}  #拷贝目标war包或者jar包等至output目录下
+#mv ${path}/target/TikTokPlayer-1.0-SNAPSHOT.war ${TOMCAT_HOME}  #拷贝目标war包或者jar包等至output目录下
+scp -r ${path}/target/TikTokPlayer-1.0-SNAPSHOT.war root@106.54.76.130:${TOMCAT_HOME}

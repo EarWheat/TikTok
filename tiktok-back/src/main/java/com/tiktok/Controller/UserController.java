@@ -28,13 +28,6 @@ public class UserController {
     @Resource
     public UserServiceImpl userService;
 
-    @RequestMapping("/redisInfo")
-    public RestResult getRedisInfo(){
-        RedisUtil.set("name","Confucius");
-        String hello = "Hello!".concat(RedisUtil.get("name"));
-        return RestResult.successResult(hello);
-    }
-
     @RequestMapping("/")
     public RestResult welcome(){
         return RestResult.successResult("welcome");
