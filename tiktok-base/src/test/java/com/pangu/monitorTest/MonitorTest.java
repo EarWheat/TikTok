@@ -1,7 +1,7 @@
 package com.pangu.monitorTest;
 
-import com.pangu.Monitor.scheduled.Entity.MonitorEntity;
-import com.pangu.Monitor.scheduled.service.IMonitorService;
+import com.tiktok.Monitor.scheduled.Entity.MonitorEntity;
+import com.tiktok.Monitor.scheduled.service.IMonitorService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;

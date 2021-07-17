@@ -2,8 +2,7 @@ package com.pangu.FileTest;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.pangu.File.FileReadUtil;
-import com.pangu.File.FileUtil;
+import com.tiktok.File.FileReadUtil;
 
 /**
  * @author liuzhaoluliuzhaolu
