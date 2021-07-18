@@ -6,6 +6,7 @@ import com.bjtv.tiktok.Entity.RestResult;
 import com.bjtv.tiktok.service.MediaService;
 import org.apache.ibatis.annotations.Param;
 import org.apache.poi.util.IOUtils;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

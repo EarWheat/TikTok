@@ -1,10 +1,9 @@
 package com.bjtv.tiktok.Controller;
 
-import com.pangu.Http.response.RestResult;
-import com.bjtv.tiktok.Entity.Comment.Comment;
-import com.bjtv.tiktok.Entity.Comment.CommentRequest;
-import com.bjtv.tiktok.Service.CommentService.CommentService;
-import com.bjtv.tiktok.Service.UserService.UserService;
+import com.bjtv.tiktok.Entity.Comment;
+import com.bjtv.tiktok.Entity.CommentRequest;
+import com.bjtv.tiktok.Entity.RestResult;
+import com.bjtv.tiktok.service.CommentService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,8 +28,8 @@ public class CommentController {
     @Resource
     public CommentService commentService;
 
-    @Resource
-    public UserService userService;
+//    @Resource
+//    public UserService userService;
     /**
      * 获取对应评论
      * @param mediaId
@@ -39,8 +38,8 @@ public class CommentController {
     @RequestMapping(value = "/getCommentList")
     public RestResult getCommentList(@RequestParam(value = "mediaId") String mediaId){
         List<Comment> commentList = commentService.getCommentList(mediaId);
-        commentList.forEach(comment -> comment.setAvatar(userService.getUserByUserId(comment.getUserId()).getAvatar()));
-        return RestResult.successResult(commentList);
+//        commentList.forEach(comment -> comment.setAvatar(userService.getUserByUserId(comment.getUserId()).getAvatar()));
+        return RestResult.buildSuccess(commentList);
     }
 
 
@@ -52,9 +51,9 @@ public class CommentController {
     @RequestMapping(value = "/publicComment")
     public RestResult publicComment(@RequestBody CommentRequest commentRequest){
         if(commentRequest.getUserName() == null){
-            return RestResult.failResult("please login first");
+            return RestResult.buildFail("please login first");
         }
         Boolean publicStatus = commentService.publicCommentService(commentRequest);
-        return publicStatus ? RestResult.successResult() : RestResult.failResult("public comment error");
+        return publicStatus ? RestResult.buildSuccess("public comment success") : RestResult.buildFail("public comment error");
     }
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="tiktok-web" />
+        <module name="tiktok-base" />
+        <module name="tiktok-api" />
+        <module name="tiktok-dal" />
+        <module name="tiktok-biz" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tiktok" target="1.8" />
+      <module name="tiktok-api" target="1.8" />
+      <module name="tiktok-base" target="1.8" />
+      <module name="tiktok-biz" target="1.8" />
+      <module name="tiktok-dal" target="1.8" />
+      <module name="tiktok-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="tiktok-api" options="-parameters" />
+      <module name="tiktok-base" options="-parameters" />
+      <module name="tiktok-biz" options="-parameters" />
+      <module name="tiktok-dal" options="-parameters" />
+      <module name="tiktok-web" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,15 +1,13 @@
 package com.bjtv.tiktok.Controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.pangu.Http.response.RestResult;
-import com.pangu.Http.response.ResultEnum;
-import com.bjtv.tiktok.Entity.Auth.AuthEnum;
-import com.bjtv.tiktok.Entity.Dialog.DialogParam;
-import com.bjtv.tiktok.Entity.Dialog.DialogRequest;
-import com.bjtv.tiktok.Entity.Dialog.Request;
-import com.bjtv.tiktok.Service.AuthService.AuthService;
-import com.bjtv.tiktok.Service.DialogService.DialogService;
-import org.apache.commons.lang.StringUtils;
+import com.bjtv.tiktok.Entity.DialogParam;
+import com.bjtv.tiktok.Entity.DialogRequest;
+import com.bjtv.tiktok.Entity.Request;
+import com.bjtv.tiktok.Entity.RestResult;
+import com.bjtv.tiktok.Enums.AuthEnum;
+import com.bjtv.tiktok.service.DialogService;
+import com.bjtv.tiktok.service.AuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.annotation.Validated;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -49,10 +46,10 @@ public class DialogController {
      */
     @RequestMapping("/ask")
     public RestResult<JSONObject> askQuestion(@RequestBody DialogParam dialogParam){
-        JSONObject token = authService.getAuthToken(AuthEnum.Baidu);
+        JSONObject token = authService.getAuthToken(AuthEnum.BAIDU);
         String accessToken = token.getString("access_token");
         JSONObject answer = dialogService.askQuestion(dialogParam, accessToken);
-        return RestResult.successResult(answer);
+        return RestResult.buildSuccess(answer);
     }
 
     /**
@@ -62,14 +59,8 @@ public class DialogController {
      */
     @RequestMapping("/chat")
     public RestResult<String> chat(HttpServletRequest httpServletRequest, @RequestBody @Validated DialogRequest dialogRequest){
-//        HttpSession httpSession = HttpSessionContext.getHttpSession(httpServletRequest.getSession().getId());
-//        logger.info("httpSession:{}",JSONObject.toJSONString(httpSession));
         Request request = dialogRequest.getRequest();
-        if(StringUtils.isBlank(request.getQuery())){
-            return RestResult.failResult(ResultEnum.PARAM_EMPTY);
-        }
         String answer = dialogService.chat(request, dialogRequest.getToken());
-//        RedisUtil.set("liuzhaolu","hello");
-        return RestResult.successResult(answer);
+        return RestResult.buildSuccess(answer);
     }
 }
