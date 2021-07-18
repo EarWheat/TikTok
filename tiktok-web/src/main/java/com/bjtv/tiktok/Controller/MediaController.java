@@ -1,10 +1,9 @@
 package com.bjtv.tiktok.Controller;
 
-import com.pangu.Http.response.RestResult;
-import com.pangu.Http.response.ResultEnum;
-import com.bjtv.tiktok.Entity.Media.Media;
-import com.bjtv.tiktok.Service.MediaServicee.MediaService;
-import org.apache.commons.lang.StringUtils;
+import com.alibaba.fastjson.JSONObject;
+import com.bjtv.tiktok.Entity.Media;
+import com.bjtv.tiktok.Entity.RestResult;
+import com.bjtv.tiktok.service.MediaService;
 import org.apache.ibatis.annotations.Param;
 import org.apache.poi.util.IOUtils;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,16 +38,13 @@ public class MediaController {
      * @return
      */
     @RequestMapping("/publicMedia")
-    public RestResult publicMedia(@RequestBody Media media){
-        if(StringUtils.isBlank(media.getResource())){
-            return RestResult.failResult(ResultEnum.PARAM_EMPTY);
-        }
-        return mediaService.publicMedia(media) ? RestResult.successResult() : RestResult.failResult("public media error");
+    public RestResult publicMedia(@RequestBody @Validated Media media){
+        return mediaService.publicMedia(media) ? RestResult.buildSuccess("public success") : RestResult.buildFail("public media error");
     }
 
     @RequestMapping("/getMediaList")
     public RestResult getMediaList(){
-        return RestResult.successResult(mediaService.getMediaList());
+        return RestResult.buildSuccess(mediaService.getMediaList());
     }
 
     @RequestMapping("/getMediaRandom")

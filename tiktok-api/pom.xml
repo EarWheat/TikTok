@@ -13,6 +13,11 @@
     <artifactId>tiktok-api</artifactId>
     <version>1.0.0-RELEASE</version>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>com.bjtv.tiktok-base</groupId>
+            <artifactId>tiktok-base</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -1,10 +1,9 @@
 package com.bjtv.tiktok.Controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.pangu.Http.response.RestResult;
-import com.bjtv.tiktok.Entity.Auth.AuthEnum;
-import com.bjtv.tiktok.Service.AuthService.AuthService;
-import org.springframework.web.bind.annotation.RequestBody;
+import com.bjtv.tiktok.Entity.RestResult;
+import com.bjtv.tiktok.Enums.AuthEnum;
+import com.bjtv.tiktok.service.AuthService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,19 +23,19 @@ import javax.annotation.Resource;
 @RestController
 public class AuthController {
     @Resource
-    AuthService authService;
+    public AuthService authService;
 
     @RequestMapping("/getToken")
     public RestResult<JSONObject> getToken(@RequestParam(value = "product") String product){
         AuthEnum authEnum;
-        if(product.equals(AuthEnum.Baidu.getName())){
-            authEnum = AuthEnum.Baidu;
-        } else if(product.equals(AuthEnum.Tencent.getName())){
-            authEnum = AuthEnum.Tencent;
+        if(product.equals(AuthEnum.BAIDU.getName())){
+            authEnum = AuthEnum.BAIDU;
+        } else if(product.equals(AuthEnum.TENCENT.getName())){
+            authEnum = AuthEnum.TENCENT;
         } else {
-            authEnum = AuthEnum.Alibaba;
+            authEnum = AuthEnum.ALIBABA;
         }
         JSONObject token = authService.getAuthToken(authEnum);
-        return RestResult.successResult(token);
+        return RestResult.buildSuccess(token);
     }
 }
