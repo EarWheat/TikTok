@@ -1,9 +1,9 @@
 package com.bjtv.tiktok.Controller;
 
-import com.alibaba.fastjson.JSONObject;
-import com.bjtv.tiktok.Entity.Media;
-import com.bjtv.tiktok.Entity.RestResult;
+import com.bjtv.tiktok.entity.Media;
+import com.bjtv.tiktok.entity.RestResult;
 import com.bjtv.tiktok.service.MediaService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.apache.poi.util.IOUtils;
 import org.springframework.validation.annotation.Validated;
@@ -29,6 +29,7 @@ import java.net.URLConnection;
  */
 @RestController
 @RequestMapping("/media")
+@Slf4j
 public class MediaController {
 
     @Resource
@@ -91,6 +92,33 @@ public class MediaController {
             //设置返回类型
             response.addHeader("Content-Type", "audio/mpeg;charset=utf-8");
             response.flushBuffer();
+        }
+    }
+
+    /**
+     * 视频直播
+     * @param request
+     * @param response
+     */
+    @RequestMapping("/live")
+    public void live(HttpServletRequest request, HttpServletResponse response){
+        try {
+            URL url = new URL("rtmp://127.0.0.1:1935/live");
+            URLConnection conn = url.openConnection();
+            //设置超时
+            conn.setConnectTimeout(20000);
+            conn.setReadTimeout(5000);
+            //发起连接
+            conn.connect();
+            //获取流
+            InputStream inputStream = conn.getInputStream();
+            //流转换
+            IOUtils.copy(inputStream,response.getOutputStream());
+            //设置返回类型
+            response.addHeader("Content-Type", "audio/mpeg;charset=utf-8");
+            response.flushBuffer();
+        } catch (Exception e){
+            log.error("live is not open");
         }
     }
 

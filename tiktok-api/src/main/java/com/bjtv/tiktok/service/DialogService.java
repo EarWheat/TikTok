@@ -1,8 +1,8 @@
 package com.bjtv.tiktok.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bjtv.tiktok.Entity.DialogParam;
-import com.bjtv.tiktok.Entity.Request;
+import com.bjtv.tiktok.entity.DialogParam;
+import com.bjtv.tiktok.entity.Request;
 
 /**
  * @author liuzhaoluliuzhaolu

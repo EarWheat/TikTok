@@ -1,7 +1,7 @@
 package com.bjtv.tiktok.service;
 
-import com.bjtv.tiktok.Entity.Media;
-import com.btjv.tiktok.MediaMapper;
+import com.bjtv.tiktok.entity.Media;
+import com.bjtv.tiktok.MediaMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

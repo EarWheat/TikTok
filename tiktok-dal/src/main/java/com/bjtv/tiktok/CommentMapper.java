@@ -1,6 +1,6 @@
-package com.bjtv.tiktok.Dao;
+package com.bjtv.tiktok;
 
-import com.bjtv.tiktok.Entity.Comment;
+import com.bjtv.tiktok.entity.Comment;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,6 +16,17 @@ import java.util.List;
  */
 @Mapper
 public interface CommentMapper {
+    /**
+     * 发表评论
+     * @param comment
+     * @return
+     */
     Boolean publicComment(Comment comment);
+
+    /**
+     * 获取评论列表
+     * @param mediaId
+     * @return
+     */
     List<Comment> getCommentList(String mediaId);
 }

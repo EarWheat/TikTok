@@ -1,10 +1,10 @@
 package com.bjtv.tiktok.Controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bjtv.tiktok.Entity.DialogParam;
-import com.bjtv.tiktok.Entity.DialogRequest;
-import com.bjtv.tiktok.Entity.Request;
-import com.bjtv.tiktok.Entity.RestResult;
+import com.bjtv.tiktok.entity.DialogParam;
+import com.bjtv.tiktok.entity.DialogRequest;
+import com.bjtv.tiktok.entity.Request;
+import com.bjtv.tiktok.entity.RestResult;
 import com.bjtv.tiktok.Enums.AuthEnum;
 import com.bjtv.tiktok.service.DialogService;
 import com.bjtv.tiktok.service.AuthService;

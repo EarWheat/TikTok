@@ -1,4 +1,4 @@
-package com.bjtv.tiktok.Entity;
+package com.bjtv.tiktok.entity;
 
 import com.bjtv.tiktok.Enums.RestResultEnum;
 import lombok.AllArgsConstructor;

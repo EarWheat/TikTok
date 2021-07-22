@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.bjtv.tiktok.Dao.MediaMapper">
-    <resultMap id="BaseResultMap" type="com.bjtv.tiktok.Entity.Media.Media">
+<mapper namespace="com.bjtv.tiktok.MediaMapper">
+    <resultMap id="BaseResultMap" type="com.bjtv.tiktok.entity.Media">
         <id column="id" jdbcType="BIGINT" property="id" />
         <result column="user_id" jdbcType="VARCHAR" property="userId" />
         <result column="media_id" jdbcType="VARCHAR" property="mediaId" />
@@ -14,7 +14,7 @@
         user_id,media_id,resource,create_time,update_time
     </sql>
 
-    <insert id="publicMedia" parameterType="com.bjtv.tiktok.Entity.Media.Media">
+    <insert id="publicMedia" parameterType="com.bjtv.tiktok.entity.Media">
         insert into tiktok_media(user_id, media_id, resource) values (#{userId}, #{mediaId}, #{resource})
     </insert>
 

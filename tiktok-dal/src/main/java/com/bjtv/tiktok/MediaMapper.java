@@ -1,6 +1,6 @@
-package com.btjv.tiktok;
+package com.bjtv.tiktok;
 
-import com.bjtv.tiktok.Entity.Media;
+import com.bjtv.tiktok.entity.Media;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

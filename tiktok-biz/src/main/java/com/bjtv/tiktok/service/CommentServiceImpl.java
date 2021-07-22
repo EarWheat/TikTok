@@ -1,9 +1,8 @@
 package com.bjtv.tiktok.service;
 
-import com.bjtv.tiktok.Dao.CommentMapper;
-import com.bjtv.tiktok.Entity.Comment;
-import com.bjtv.tiktok.Entity.CommentRequest;
-import com.bjtv.tiktok.service.CommentService;
+import com.bjtv.tiktok.CommentMapper;
+import com.bjtv.tiktok.entity.Comment;
+import com.bjtv.tiktok.entity.CommentRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

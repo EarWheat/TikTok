@@ -1,10 +1,9 @@
-package com.bjtv.tiktok.Entity;
+package com.bjtv.tiktok.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 
 /**
  * @author liuzhaoluliuzhaolu

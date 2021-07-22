@@ -1,8 +1,8 @@
 package com.bjtv.tiktok.Controller;
 
-import com.bjtv.tiktok.Entity.Comment;
-import com.bjtv.tiktok.Entity.CommentRequest;
-import com.bjtv.tiktok.Entity.RestResult;
+import com.bjtv.tiktok.entity.Comment;
+import com.bjtv.tiktok.entity.CommentRequest;
+import com.bjtv.tiktok.entity.RestResult;
 import com.bjtv.tiktok.service.CommentService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

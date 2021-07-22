@@ -1,4 +1,4 @@
-package com.bjtv.tiktok.Entity;
+package com.bjtv.tiktok.entity;
 
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;

@@ -1,8 +1,8 @@
 package com.bjtv.tiktok.service;
 
 
-import com.bjtv.tiktok.Entity.Comment;
-import com.bjtv.tiktok.Entity.CommentRequest;
+import com.bjtv.tiktok.entity.Comment;
+import com.bjtv.tiktok.entity.CommentRequest;
 
 import java.util.List;
 
@@ -16,6 +16,17 @@ import java.util.List;
  * ------------------------------------------ *
  */
 public interface CommentService {
+    /**
+     * 发表评论
+     * @param commentRequest
+     * @return
+     */
     Boolean publicCommentService(CommentRequest commentRequest);
+
+    /**
+     * 获取评论内容
+     * @param mediaId
+     * @return
+     */
     List<Comment> getCommentList(String mediaId);
 }

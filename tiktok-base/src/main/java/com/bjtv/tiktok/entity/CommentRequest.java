@@ -1,27 +1,26 @@
-package com.bjtv.tiktok.Entity;
+package com.bjtv.tiktok.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
-import lombok.NonNull;
 
 /**
  * @author liuzhaoluliuzhaolu
- * @date 2021/2/4 下午4:12
- * @desc 聊天请求
+ * @date 2021/2/24 下午5:44
+ * @desc 评论请求
  * @prd
  * @Modification History:
  * Date         Author          Description
  * ------------------------------------------ *
  */
 @Data
-public class DialogRequest {
+public class CommentRequest {
     @JSONField
-    @NonNull
-    private Request request;
+    public String mediaId;
 
     @JSONField
-    private String token;
+    public String content;
 
-    public DialogRequest() {
-    }
+    @JSONField
+    public String userName;
+
 }

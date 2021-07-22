@@ -1,6 +1,6 @@
 package com.bjtv.tiktok.service;
 
-import com.bjtv.tiktok.Entity.Media;
+import com.bjtv.tiktok.entity.Media;
 
 import java.util.List;
 
