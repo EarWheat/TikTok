@@ -103,7 +103,7 @@ public class MediaController {
     @RequestMapping("/live")
     public void live(HttpServletRequest request, HttpServletResponse response){
         try {
-            URL url = new URL("rtmp://127.0.0.1:1935/live");
+            URL url = new URL("rtmp://127.0.0.1:1935/hls");
             URLConnection conn = url.openConnection();
             //设置超时
             conn.setConnectTimeout(20000);
