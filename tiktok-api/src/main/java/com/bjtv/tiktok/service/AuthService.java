@@ -1,7 +1,7 @@
 package com.bjtv.tiktok.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.bjtv.tiktok.Enums.AuthEnum;
+import com.bjtv.tiktok.enums.AuthEnum;
 
 /**
  * @author liuzhaoluliuzhaolu

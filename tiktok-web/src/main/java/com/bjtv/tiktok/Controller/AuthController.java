@@ -2,7 +2,7 @@ package com.bjtv.tiktok.Controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bjtv.tiktok.entity.RestResult;
-import com.bjtv.tiktok.Enums.AuthEnum;
+import com.bjtv.tiktok.enums.AuthEnum;
 import com.bjtv.tiktok.service.AuthService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;

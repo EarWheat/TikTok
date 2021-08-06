@@ -1,6 +1,6 @@
 package com.bjtv.tiktok.entity;
 
-import com.bjtv.tiktok.Enums.RestResultEnum;
+import com.bjtv.tiktok.enums.RestResultEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -52,5 +52,10 @@ public class RestResult<T> {
                 .withData(data);
     }
 
+    public static <T> RestResult<T> buildFail(){
+        return new RestResult<T>()
+                .withErrNo(RestResultEnum.FAIL.getErrno())
+                .withErrMsg(RestResultEnum.FAIL.getErrmsg());
+    }
 
 }

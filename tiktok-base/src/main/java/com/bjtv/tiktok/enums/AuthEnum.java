@@ -1,8 +1,4 @@
-package com.bjtv.tiktok.Enums;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+package com.bjtv.tiktok.enums;
 
 /**
  * @author liuzhaoluliuzhaolu

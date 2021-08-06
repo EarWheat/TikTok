@@ -3,7 +3,7 @@ package com.bjtv.tiktok.service;
 import com.alibaba.fastjson.JSONObject;
 import com.bjtv.tiktok.Client.HttpClient;
 import com.bjtv.tiktok.Constants.BaiduConstants;
-import com.bjtv.tiktok.Enums.AuthEnum;
+import com.bjtv.tiktok.enums.AuthEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

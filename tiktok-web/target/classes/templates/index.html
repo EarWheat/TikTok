@@ -1,10 +1,127 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
+
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <title>flv.js demo</title>
+
+    <style>
+        .mainContainer {
+            display: block;
+            width: 1024px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .urlInput {
+            display: block;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        .centeredVideo {
+            display: block;
+            width: 100%;
+            height: 576px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: auto;
+        }
+
+        .controls {
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+
+        .logcatBox {
+            border-color: #CCCCCC;
+            font-size: 11px;
+            font-family: Menlo, Consolas, monospace;
+            display: block;
+            width: 100%;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="/flv.js/demo/demo.css"> -->
+</head>
+
 <body>
 
-<video src="http://127.0.0.1:8000/tiktok/media/live" controls="controls">
-    Your browser does not support the audio element.
-</video>
+<div class="mainContainer">
+    <!--  atuopaly-->
+    <video name="videoElement" class="centeredVideo" id="videoElement" controls width="1024" height="576" muted>
+        Your browser is too old which doesn't support HTML5 video.
+    </video>
+
+</div>
+
+<!--<script src="./flv.js?v=2"></script>-->
+<script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.js"></script>
+
+<script>
+    if (flvjs.isSupported()) {
+        startVideo()
+    }
+
+    function startVideo(){
+        var videoElement = document.getElementById('videoElement');
+        var flvPlayer = flvjs.createPlayer({
+
+            // enableConstVideoViewSize: true,
+            // enableDurationMonitor: true,    // true表示监测当前直播流延时，当发现延时过大时，主动追赶
+            // enableVideoFrozenMonitor: true, // 监测视频解码是否停滞（画面卡停），当因为某些原因导致无法解码时，将上报VIDEO_FROZEN事件，收到后建议重拉流
+
+            // videoStateMonitorInterval: 5000,
+            // maxDurationGap: 2,
+            // decreaseDurationStep: 0.4,
+            // frozenTimesThreshold: 5,
+
+
+            type: 'flv',
+            enableWorker: true,     //浏览器端开启flv.js的worker,多进程运行flv.js
+            isLive: true,           //直播模式
+            hasAudio: false,        //关闭音频
+            hasVideo: true,
+            // cors: true,
+            stashInitialSize: 128,
+            enableStashBuffer: false, //播放flv时，设置是否启用播放缓存，只在直播起作用。
+            // url: 'http://192.168.2.234/flv/323223618780001'
+            url:'http://127.0.0.1/flv?port=1935&app=live&stream=test'
+
+        });
+        flvPlayer.attachMediaElement(videoElement);
+        flvPlayer.load();
+        flvPlayer.play();
+    }
+
+    videoElement.addEventListener('click', function(){
+        alert( '是否支持点播视频：' + flvjs.getFeatureList().mseFlvPlayback + ' 是否支持httpflv直播流：' + flvjs.getFeatureList().mseLiveFlvPlayback )
+    })
+
+    function destoryVideo(){
+        flvPlayer.pause();
+        flvPlayer.unload();
+        flvPlayer.detachMediaElement();
+        flvPlayer.destroy();
+        flvPlayer = null;
+    }
+
+    function reloadVideo(){
+        destoryVideo()
+        startVideo()
+    }
+</script>
 
 </body>
+
 </html>

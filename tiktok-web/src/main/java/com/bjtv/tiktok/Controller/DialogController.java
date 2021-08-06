@@ -5,7 +5,7 @@ import com.bjtv.tiktok.entity.DialogParam;
 import com.bjtv.tiktok.entity.DialogRequest;
 import com.bjtv.tiktok.entity.Request;
 import com.bjtv.tiktok.entity.RestResult;
-import com.bjtv.tiktok.Enums.AuthEnum;
+import com.bjtv.tiktok.enums.AuthEnum;
 import com.bjtv.tiktok.service.DialogService;
 import com.bjtv.tiktok.service.AuthService;
 import org.slf4j.Logger;

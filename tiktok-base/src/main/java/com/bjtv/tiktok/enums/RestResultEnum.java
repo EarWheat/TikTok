@@ -1,4 +1,4 @@
-package com.bjtv.tiktok.Enums;
+package com.bjtv.tiktok.enums;
 
 /**
  * @author liuzhaoluliuzhaolu
