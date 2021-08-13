@@ -63,4 +63,16 @@ public class DialogController {
         String answer = dialogService.chat(request, dialogRequest.getToken());
         return RestResult.buildSuccess(answer);
     }
+
+    /**
+     * 聊天问答
+     * @param dialogRequest
+     * @return
+     */
+    @RequestMapping("/voiceChat")
+    public RestResult<String> voiceCat(HttpServletRequest httpServletRequest, @RequestBody @Validated DialogRequest dialogRequest){
+        Request request = dialogRequest.getRequest();
+        String answer = dialogService.chat(request, dialogRequest.getToken());
+        return RestResult.buildSuccess(answer);
+    }
 }

@@ -57,7 +57,13 @@ public class DialogServiceImpl implements DialogService {
     public String chat(Request chatRequest, String token){
         String answer = BaiduConstants.DIALOG_ANSWER_REVEAL;
         try {
-            DialogParam dialogParam = getDefaultDialogParam(chatRequest);  // 获取默认聊天配置
+            String requestSessionId = (String) Optional.ofNullable(RedisUtil.get(BaiduConstants.DIALOG_REDIS_KEY.concat(chatRequest.getUser_id()))).orElse("");
+            // 获取默认聊天配置
+            DialogParam dialogParam = DialogParam.builder()
+                    .logId(UUID.randomUUID().toString())
+                    .sessionId(requestSessionId)
+                    .serviceId(BaiduConstants.BAIDU_DIALOG_SERVICE_ID)
+                    .request(chatRequest).build();
             logger.info("dialog param :{}" ,dialogParam.toString());
             JSONObject params = JSONObject.parseObject(dialogParam.toString());
             HttpHeaders httpHeaders = new HttpHeaders();
@@ -71,21 +77,6 @@ public class DialogServiceImpl implements DialogService {
         return answer;
     }
 
-    /**
-     * 获取默认聊天配置
-     * @return
-     */
-    private DialogParam getDefaultDialogParam(Request chatRequest){
-        DialogParam dialogParam = new DialogParam();
-        dialogParam.setLog_id(UUID.randomUUID().toString());
-//        HttpSession session = HttpSessionContext.getHttpSession(sessionId);
-        String requestSessionId = (String) Optional.ofNullable(RedisUtil.get(BaiduConstants.DIALOG_REDIS_KEY.concat(chatRequest.getUser_id()))).orElse("");
-        dialogParam.setSession_id(requestSessionId);
-        logger.info("dialog param request session id:{}", dialogParam.getSession_id());
-        dialogParam.setService_id(BaiduConstants.BAIDU_DIALOG_SERVICE_ID);
-        dialogParam.setRequest(chatRequest);
-        return dialogParam;
-    }
 
     /**
      * 根据Response返回最好的回答
