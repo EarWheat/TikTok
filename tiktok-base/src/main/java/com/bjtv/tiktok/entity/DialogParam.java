@@ -1,9 +1,9 @@
 package com.bjtv.tiktok.entity;
 
-import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.annotation.JSONField;
 import lombok.*;
 
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
@@ -54,9 +54,9 @@ public class DialogParam {
     /**
      * 本轮请求体。
      */
-    @JSONField(name = "request")
-    @NonNull
-    private Request request;
+    @JSONField(name = "query")
+    @NotNull(message = "query is required")
+    private String query;
 
     /**
      * 机器人对话状态

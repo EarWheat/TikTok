@@ -5,7 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.bjtv.tiktok.Client.HttpClient;
 import com.bjtv.tiktok.Constants.BaiduConstants;
 import com.bjtv.tiktok.entity.DialogParam;
-import com.bjtv.tiktok.entity.Request;
+import com.bjtv.tiktok.entity.DialogRequest;
 import com.bjtv.tiktok.Util.Redis.RedisUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,31 +50,37 @@ public class DialogServiceImpl implements DialogService {
 
     /**
      * 聊天
-     * @param chatRequest
+     * @param dialogRequest
      * @return
      */
     @Override
-    public String chat(Request chatRequest, String token){
+    public String chat(DialogRequest dialogRequest){
         String answer = BaiduConstants.DIALOG_ANSWER_REVEAL;
         try {
-            String requestSessionId = (String) Optional.ofNullable(RedisUtil.get(BaiduConstants.DIALOG_REDIS_KEY.concat(chatRequest.getUser_id()))).orElse("");
+            // 请求的sessionId
+            String requestSessionId = (String) Optional.ofNullable(RedisUtil.get(BaiduConstants.DIALOG_REDIS_KEY.concat(dialogRequest.getUserId()))).orElse("");
             // 获取默认聊天配置
             DialogParam dialogParam = DialogParam.builder()
                     .logId(UUID.randomUUID().toString())
                     .sessionId(requestSessionId)
                     .serviceId(BaiduConstants.BAIDU_DIALOG_SERVICE_ID)
-                    .request(chatRequest).build();
+                    .query(dialogRequest.getQuery()).build();
             logger.info("dialog param :{}" ,dialogParam.toString());
             JSONObject params = JSONObject.parseObject(dialogParam.toString());
             HttpHeaders httpHeaders = new HttpHeaders();
             httpHeaders.add("Content-Type", "application/json");
-            String requestUrl = BaiduConstants.BAIDU_DIALOG_URL + "?access_token=" + token;
+            String requestUrl = BaiduConstants.BAIDU_DIALOG_URL + "?access_token=" + dialogRequest.getToken();
             String response = HttpClient.doPostJsonHttp(requestUrl, params, httpHeaders, 2000,2000);
-            answer = getAnswer(response, chatRequest.getUser_id());
+            answer = getAnswer(response, dialogRequest.getUserId());
         } catch (Exception e){
             logger.error("get dialog answer error:{}", e.toString());
         }
         return answer;
+    }
+
+    @Override
+    public String voiceChat(DialogRequest dialogRequest) {
+        return null;
     }
 
 

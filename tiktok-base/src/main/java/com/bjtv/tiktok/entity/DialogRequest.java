@@ -1,8 +1,11 @@
 package com.bjtv.tiktok.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NonNull;
+import lombok.NoArgsConstructor;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -14,14 +17,17 @@ import lombok.NonNull;
  * ------------------------------------------ *
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DialogRequest {
-    @JSONField
-    @NonNull
-    private Request request;
+    @JSONField(name = "query")
+    @NotNull(message = "tell me you question")
+    private String query;
 
-    @JSONField
+    @JSONField(name = "user_id")
+    private String userId;
+
+    @JSONField(name = "token")
     private String token;
 
-    public DialogRequest() {
-    }
 }

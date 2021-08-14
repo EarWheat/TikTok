@@ -2,7 +2,7 @@ package com.bjtv.tiktok.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bjtv.tiktok.entity.DialogParam;
-import com.bjtv.tiktok.entity.Request;
+import com.bjtv.tiktok.entity.DialogRequest;
 
 /**
  * @author liuzhaoluliuzhaolu
@@ -14,6 +14,25 @@ import com.bjtv.tiktok.entity.Request;
  * ------------------------------------------ *
  */
 public interface DialogService {
+    /**
+     * 提问问答
+     * @param dialogParam
+     * @param token
+     * @return
+     */
     JSONObject askQuestion(DialogParam dialogParam, String token);
-    String chat(Request chatRequest, String token);
+
+    /**
+     * 聊天
+     * @param dialogRequest
+     * @return
+     */
+    String chat(DialogRequest dialogRequest);
+
+    /**
+     * 语音聊天
+     * @param dialogRequest
+     * @return
+     */
+    String voiceChat(DialogRequest dialogRequest);
 }

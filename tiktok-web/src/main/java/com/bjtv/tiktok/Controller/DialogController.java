@@ -3,7 +3,6 @@ package com.bjtv.tiktok.Controller;
 import com.alibaba.fastjson.JSONObject;
 import com.bjtv.tiktok.entity.DialogParam;
 import com.bjtv.tiktok.entity.DialogRequest;
-import com.bjtv.tiktok.entity.Request;
 import com.bjtv.tiktok.entity.RestResult;
 import com.bjtv.tiktok.enums.AuthEnum;
 import com.bjtv.tiktok.service.DialogService;
@@ -59,8 +58,7 @@ public class DialogController {
      */
     @RequestMapping("/chat")
     public RestResult<String> chat(HttpServletRequest httpServletRequest, @RequestBody @Validated DialogRequest dialogRequest){
-        Request request = dialogRequest.getRequest();
-        String answer = dialogService.chat(request, dialogRequest.getToken());
+        String answer = dialogService.chat(dialogRequest);
         return RestResult.buildSuccess(answer);
     }
 
@@ -71,8 +69,7 @@ public class DialogController {
      */
     @RequestMapping("/voiceChat")
     public RestResult<String> voiceCat(HttpServletRequest httpServletRequest, @RequestBody @Validated DialogRequest dialogRequest){
-        Request request = dialogRequest.getRequest();
-        String answer = dialogService.chat(request, dialogRequest.getToken());
+        String answer = dialogService.voiceChat(dialogRequest);
         return RestResult.buildSuccess(answer);
     }
 }
